@@ -1,0 +1,58 @@
+# Node / pnpm
+node_modules/
+.pnpm-store/
+
+# Logs
+logs/
+*.log
+pnpm-debug.log*
+
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+coverage/
+
+# React Native / Expo
+.expo/
+.expo-shared/
+android/
+ios/
+
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+
+# Prisma
+prisma/migrations/
+
+
+# Docker
+docker-data/
+
+
+# Misc
+*.pem
+*.key
+*.crt
+
+
+# Temporary files
+tmp/
+temp/

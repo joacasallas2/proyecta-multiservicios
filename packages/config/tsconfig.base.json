@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "ignoreDeprecations": "6.0",
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@shared/types*": ["../types/src/*"],
+      "@utils/*": ["../utils/src/*"],
+      "@ai/*": ["../ai/src/*"],
+      "@events/*": ["../events/src/*"],
+      "@db/*": ["../db/src/*"],
+      "@ui/*": ["../ui/src/*"],
+      "@auth/*": ["../auth/src/*"],
+      "@validation/*": ["../validation/src/*"],
+      "@constants/*": ["../constants/src/*"]
+    }
+  }
+}
