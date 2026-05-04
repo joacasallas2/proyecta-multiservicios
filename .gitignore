@@ -56,3 +56,6 @@ docker-data/
 # Temporary files
 tmp/
 temp/
+
+
+agents.md
