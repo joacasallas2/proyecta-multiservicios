@@ -87,10 +87,58 @@ SUPABASE_JWT_SECRET=
 
 ## Base de Datos
 
+---
+
+### Roles del sistema
+
+- ADMIN: gestión total del sistema
+- CLIENT: solicita servicios
+- TECHNICIAN: ejecuta servicios
+
+---
+
+
+### Regla
+
+El rol:
+- nunca viene del cliente
+- nunca se confía del JWT
+- siempre se obtiene desde la base de datos
+
+
+---
+
+### Modelo User
+
+- id
+- email
+- name
+- role: enum (ADMIN, CLIENT, TECHNICIAN)
+- externalAuthId (id de Supabase)  
+- createdAt
+- updatedAt
+
+---
+
+### Reglas del modelo User
+
+- email debe ser único
+- externalAuthId debe ser único
+
+---
+
 ### Tecnología
 
 * PostgreSQL
 * Prisma
+
+---
+
+### Extensiones PostgreSQL
+
+- pgvector habilitado (para uso en Fase 8)
+
+---
 
 ### Ubicación
 
@@ -151,11 +199,18 @@ packages/db
 3. Envía request con `Authorization: Bearer token`
 4. Backend valida el token
 5. Backend extrae:
-
    * userId
-   * email
-6. Backend sincroniza usuario (si no existe → lo crea)
-7. Request continúa con usuario inyectado
+   * email  
+6. Backend busca usuario en la base de datos
+7. Si no existe → lo crea con role = CLIENT por defecto
+8. El rol SIEMPRE se obtiene desde la base de datos
+
+---
+
+### Sincronización de usuario
+
+- la creación del usuario ocurre automáticamente en el primer request autenticado
+- no existe endpoint manual para crear usuarios desde backend
 
 ---
 
